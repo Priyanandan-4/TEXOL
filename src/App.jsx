@@ -8,6 +8,7 @@ import Signin from '../components/Signin';
 import Home from '../components/Home';
 import QuizApp from '../components/Home';
 import Result from '../components/Result';
+import NotFound from '../components/Notfound';
 
 
 const App = () => {
@@ -24,6 +25,7 @@ const App = () => {
         <Route path="/signin" element={<Signin />} />
         <Route path="/home" element={<QuizApp />} />
         <Route path='/result' element={<Result/>}/>
+        <Route path="*" element={<NotFound/>}/>
       </Routes>
     </div>
   );
