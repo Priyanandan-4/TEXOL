@@ -1,0 +1,41 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Alice Johnson",
+      "email": "alice@student.com",
+      "status": "student",
+      "password": "password123"
+    },
+    {
+      "id": "2",
+      "name": "Bob Smith",
+      "email": "bob@employee.com",
+      "status": "employee",
+      "password": "bobpass456"
+    },
+    {
+      "id": "3",
+      "name": "Carol Martinez",
+      "email": "carol@student.com",
+      "status": "student",
+      "password": "carol321"
+    },
+    {
+      "id": "4",
+      "name": "David Lee",
+      "email": "david@employee.com",
+      "status": "employee",
+      "password": "david789"
+    },
+    {
+      "id": "5c45",
+      "fullName": "PRIYANANDAN A",
+      "email": "priyanandantx@gmail.com",
+      "countryCode": "+91",
+      "phoneNumber": "8129278755",
+      "status": "employee",
+      "password": "PRIYANANDAN"
+    }
+  ]
+}
