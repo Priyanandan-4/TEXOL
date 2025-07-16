@@ -20,11 +20,11 @@ const Landing = () => {
       {/* Main Content */}
       <div className="flex-1 flex flex-col items-center justify-center px-8 mt-32 md:mt-10">
         <div className="text-center max-w-7xl w-full relative">
-          <h1 className="text-[50px] md:text-[70px] font-bold tracking-wide z-50 text-[#313131]">
+          <h1 className="text-[30px] md:text-[70px] font-bold tracking-wide z-50 text-[#313131]">
             Welcome to{" "}
             <span className="relative inline-block">
               <span className="relative z-10">TSEEP Mastery Box</span>
-              <div className="absolute bottom-4 md:bottom-6 left-0 w-full h-3 bg-[#fac167] z-0"></div>
+              <div className="absolute bottom-2 md:bottom-6 left-0 w-full h-3 bg-[#fac167] z-0"></div>
             </span>
           </h1>
 
