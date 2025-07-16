@@ -36,6 +36,15 @@
       "phoneNumber": "8129278755",
       "status": "employee",
       "password": "PRIYANANDAN"
+    },
+    {
+      "id": "fa8a",
+      "fullName": "anime",
+      "email": "antx@gmail.com",
+      "countryCode": "+91",
+      "phoneNumber": "3129278555",
+      "status": "student",
+      "password": "anime123"
     }
   ]
 }

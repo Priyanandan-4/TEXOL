@@ -85,7 +85,7 @@ export default function Result() {
       {/* Main content */}
       <div className="flex-1 flex flex-col items-center justify-between px-4 pb-4">
         {/* Top Success Message */}
-        <div className="text-center">
+        <div className=" text-center flex flex-col justify-center items-center gap-2">
   <img
   src="./image/tick.png"  
   alt="Success"
@@ -101,7 +101,7 @@ export default function Result() {
               {score}/{totalQuestions}
             </span>
           </p>
-          <p className="bg-[#2F5D73] text-white px-4 py-1 rounded-md font-semibold">
+          <p className="bg-[#2F5D73] text-white px-4 py-1  w-52 rounded-md font-semibold">
             Your ID : {currentUser?.id || "784962"}
           </p>
         </div>
@@ -125,7 +125,7 @@ export default function Result() {
           ></textarea>
           <button
             onClick={() => alert("Successfully sent")}
-            className="w-full bg-[#2F5D73] text-white py-2 rounded hover:bg-[#234859] transition"
+            className="w-56 bg-[#2F5D73] text-white py-2 rounded hover:bg-[#234859] transition"
           >
             Submit Feedback
           </button>

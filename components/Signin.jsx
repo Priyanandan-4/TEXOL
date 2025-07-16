@@ -80,7 +80,7 @@ export default function Signin() {
             <Form className="space-y-4">
               {/* Full Name */}
               <div>
-                <label htmlFor="fullName" className="block text-xs font-medium text-gray-900 mb-1">
+                <label htmlFor="fullName" className="block text-md font-bold text-[#313131] mb-1">
                   Full Name
                 </label>
                 <Field
@@ -99,7 +99,7 @@ export default function Signin() {
 
               {/* Email */}
               <div>
-                <label htmlFor="email" className="block text-xs font-medium text-gray-900 mb-1">
+                <label htmlFor="email" className="block text-md font-bold text-[#313131] mb-1">
                   Email
                 </label>
                 <Field
@@ -118,7 +118,7 @@ export default function Signin() {
 
               {/* Mobile Number */}
               <div>
-                <label htmlFor="phoneNumber" className="block text-xs font-medium text-gray-900 mb-1">
+                <label htmlFor="phoneNumber" className="block text-md font-bold text-[#313131] mb-1">
                   Mobile Number
                 </label>
                 <div className="flex gap-2">
@@ -157,7 +157,7 @@ export default function Signin() {
 
               {/* Current Status */}
               <div>
-                <label className="block text-xs font-medium text-gray-900 mb-2">Current Status</label>
+                <label className="block text-md font-bold text-[#313131] mb-2">Current Status</label>
                 <div className="flex gap-4">
                   <label className="flex items-center cursor-pointer">
                     <Field
@@ -166,7 +166,7 @@ export default function Signin() {
                       value="student"
                       className="w-3 h-3 text-blue-600 border-gray-300 focus:ring-blue-500"
                     />
-                    <span className="ml-1 text-xs text-gray-900">Student</span>
+                    <span className="ml-1 text-sm text-gray-900">Student</span>
                   </label>
                   <label className="flex items-center cursor-pointer">
                     <Field
@@ -175,7 +175,7 @@ export default function Signin() {
                       value="employee"
                       className="w-3 h-3 text-blue-600 border-gray-300 focus:ring-blue-500"
                     />
-                    <span className="ml-1 text-xs text-gray-900">Employee</span>
+                    <span className="ml-1 text-sm text-gray-900">Employee</span>
                   </label>
                 </div>
                 <ErrorMessage
@@ -187,7 +187,7 @@ export default function Signin() {
 
               {/* Password */}
               <div>
-                <label htmlFor="password" className="block text-xs font-medium text-gray-900 mb-1">
+                <label htmlFor="password" className="block text-md font-bold text-[#313131] mb-1">
                   Password
                 </label>
                 <Field
@@ -218,7 +218,7 @@ export default function Signin() {
 
         {/* Login Link */}
         <div className="text-center mt-4">
-          <p className="text-xs text-gray-600">
+          <p className="text-sm text-gray-600">
             Already have an account?{" "}
             <a href="/login" className="text-blue-600 hover:text-blue-700 font-medium">
               Login Now

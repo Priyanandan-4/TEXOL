@@ -168,9 +168,9 @@ export default function QuizApp() {
   return (
     <div className="min-h-screen flex">
       {/* Sidebar */}
-      <div className="hidden md:block w-72 border-r border-gray-200 flex-col overflow-y-auto">
+      <div className={`hidden md:block w-72 border-r border-gray-200 flex-col overflow-y-auto ${sidebarCollapsed ? 'border-white ' : ''}`}>
         <img src="./image/logoone.png" alt="Logo" className="w-96 px-4" />
-        <div className={`text-gray-700 rounded-lg transition-colors ${sidebarCollapsed ? 'pl-8 mt-6' : 'ml-60'}`}>
+        <div className={`text-gray-700 rounded-lg transition-colors ${sidebarCollapsed ? 'pl-8 mt-6 ' : 'ml-60'}`}>
           <Table2 onClick={toggleSidebar} />
         </div>
         {!sidebarCollapsed && (
@@ -205,15 +205,15 @@ export default function QuizApp() {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col min-h-screen">
+      <div className="flex-1 flex flex-col min-h-screen ">
         <header className="px-8 py-6 flex items-center justify-between md:justify-end">
           <div className="md:hidden">
-            <img src="./image/logoone.png" alt="Logo" className="h-8" />
+            <img src="./image/logoone.png" alt="Logo" className="w-52" />
           </div>
           <div className="relative">
             <div
               onClick={() => setShowLogout(!showLogout)}
-              className="w-16 h-16 flex items-center justify-center hover:bg-yellow-500 transition-colors"
+              className=" w-14 h-14 md:w-16 md:h-16 flex items-center justify-center transition-colors"
               title={`${currentUser.fullName} - ${currentUser.phoneNumber}`}
             >
                  <img
@@ -242,8 +242,8 @@ export default function QuizApp() {
         </header>
 
         <div className="flex-1 p-2">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center">
+          <div className={`max-w-6xl mx-auto ${sidebarCollapsed ? 'ml-5' : ''}  `}>
+            <div className="text-center ">
          
  <h1 className="text-3xl font-extrabold text-gray-800 relative z-30">
   Assess Your{" "}
@@ -255,7 +255,7 @@ export default function QuizApp() {
 
             </div>
 
-            <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center justify-between mb-4 mt-12 md:mt-0">
               <div className="flex-1 max-w-3xl">
                 <div className="w-full bg-gray-200 rounded-full h-2">
                   <div
@@ -276,7 +276,7 @@ export default function QuizApp() {
             </div>
 
             {currentQuestionData && (
-              <div className="bg-[#F4F4F4] rounded-lg shadow-sm p-6">
+              <div className="bg-[#F4F4F4] rounded-lg shadow-sm p-6  ">
                 <div className="flex items-start gap-3 mb-6">
                   <div className="w-8 h-8 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold text-base">
                     {currentQuestion + 1}
