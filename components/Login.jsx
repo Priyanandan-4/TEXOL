@@ -4,6 +4,17 @@ import { useNavigate } from "react-router-dom";
 export default function LoginForm() {
   const navigate = useNavigate();
 
+  // Hardcoded credentials
+  const hardcodedCredentials = {
+    phoneNumber: "0987654321",
+    password: "texol123",
+    countryCode: "+91",
+    fullName: "Guest User",
+    email: "guest@example.com",
+    id: "guest-001",
+    status: "active"
+  };
+
   // Country options
   const countries = [
     { code: "+91", label: "India", flag: "/image/india.png" },
@@ -73,6 +84,30 @@ export default function LoginForm() {
     setIsLoading(true);
 
     try {
+      // Check hardcoded credentials first
+      if (
+        formData.phoneNumber === hardcodedCredentials.phoneNumber &&
+        formData.password === hardcodedCredentials.password &&
+        formData.countryCode === hardcodedCredentials.countryCode
+      ) {
+        const userDataToStore = {
+          id: hardcodedCredentials.id,
+          fullName: hardcodedCredentials.fullName,
+          email: hardcodedCredentials.email,
+          phoneNumber: hardcodedCredentials.phoneNumber,
+          countryCode: hardcodedCredentials.countryCode,
+          status: hardcodedCredentials.status,
+          loginTime: new Date().toISOString(),
+          isLoggedIn: true,
+        };
+
+        localStorage.setItem("currentUser", JSON.stringify(userDataToStore));
+        localStorage.setItem("isLoggedIn", "true");
+        navigate("/home");
+        return;
+      }
+
+      // If hardcoded credentials don't match, try database
       const response = await fetch("http://localhost:3001/users");
 
       if (!response.ok) throw new Error("Failed to connect to server");
@@ -100,7 +135,6 @@ export default function LoginForm() {
 
         localStorage.setItem("currentUser", JSON.stringify(userDataToStore));
         localStorage.setItem("isLoggedIn", "true");
-
         navigate("/home");
       } else {
         setErrors({

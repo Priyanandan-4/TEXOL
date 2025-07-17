@@ -1,0 +1,62 @@
+export const questions = [
+  {
+    id: 1,
+    question: "Which of the following words is a synonym for \"exhilarating\"?",
+    options: ["Exciting", "Boring", "Tiresome", "Frightening", "Confusing"],
+    correctAnswer: 0
+  },
+  {
+    id: 2,
+    question: "What is the capital of Australia?",
+    options: ["Sydney", "Melbourne", "Canberra", "Perth", "Brisbane"],
+    correctAnswer: 2
+  },
+  {
+    id: 3,
+    question: "Which planet is known as the Red Planet?",
+    options: ["Venus", "Mars", "Jupiter", "Saturn", "Mercury"],
+    correctAnswer: 1
+  },
+  {
+    id: 4,
+    question: "What is 7 × 8?",
+    options: ["54", "56", "64", "48", "60"],
+    correctAnswer: 1
+  },
+  {
+    id: 5,
+    question: "Which element has the chemical symbol 'O'?",
+    options: ["Gold", "Oxygen", "Osmium", "Oganesson", "Iron"],
+    correctAnswer: 1
+  },
+  {
+    id: 6,
+    question: "Who wrote 'Pride and Prejudice'?",
+    options: ["Jane Austen", "Charlotte Brontë", "Emily Dickinson", "Virginia Woolf", "Mary Shelley"],
+    correctAnswer: 0
+  },
+  {
+    id: 7,
+    question: "What is the largest ocean on Earth?",
+    options: ["Atlantic", "Indian", "Arctic", "Pacific", "Southern"],
+    correctAnswer: 3
+  },
+  {
+    id: 8,
+    question: "Which country is known as the Land of the Rising Sun?",
+    options: ["China", "Japan", "Korea", "Thailand", "Vietnam"],
+    correctAnswer: 1
+  },
+  {
+    id: 9,
+    question: "What is the square root of 144?",
+    options: ["10", "11", "12", "13", "14"],
+    correctAnswer: 2
+  },
+  {
+    id: 10,
+    question: "Which gas is most abundant in Earth's atmosphere?",
+    options: ["Oxygen", "Carbon Dioxide", "Nitrogen", "Helium", "Argon"],
+    correctAnswer: 2
+  }
+];

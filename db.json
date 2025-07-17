@@ -45,6 +45,15 @@
       "phoneNumber": "3129278555",
       "status": "student",
       "password": "anime123"
+    },
+    {
+      "id": "056a",
+      "fullName": "TEXOL",
+      "email": "texol@gmail.com",
+      "countryCode": "+91",
+      "phoneNumber": "1234567890",
+      "status": "student",
+      "password": "qwertyuiop"
     }
   ]
 }

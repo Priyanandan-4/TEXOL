@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, ArrowRight, Bookmark, LogOut, Clock, Table2 } from "lucide-react";
+import { questions } from "/src/data/questionsData";
 
 export default function QuizApp() {
-  const router = useNavigate(); // ✅ replaced useRouter with useNavigate
+  const router = useNavigate();
 
-  const [questions, setQuestions] = useState([]);
+  const [questionsData, setQuestionsData] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [userAnswers, setUserAnswers] = useState({});
@@ -25,29 +26,21 @@ export default function QuizApp() {
         setCurrentUser(parsedUser);
       } catch (error) {
         console.error("Error parsing user data:", error);
-        router("/login"); // ✅ navigate to login
+        router("/login");
       }
     } else {
-      router("/login"); // ✅ navigate to login
+      router("/login");
     }
   }, [router]);
 
   useEffect(() => {
-    fetch("/questions.json")
-      .then((res) => {
-        if (!res.ok) throw new Error("Failed to fetch questions");
-        return res.json();
-      })
-      .then((data) => {
-        setQuestions(data);
-        setQuestionStatuses(
-          data.map((q, i) => ({
-            id: q.id,
-            status: i === 0 ? "current" : "upcoming",
-          }))
-        );
-      })
-      .catch((err) => console.error("Error loading questions:", err));
+    setQuestionsData(questions);
+    setQuestionStatuses(
+      questions.map((q, i) => ({
+        id: q.id,
+        status: i === 0 ? "current" : "upcoming",
+      }))
+    );
   }, []);
 
   useEffect(() => {
@@ -68,7 +61,7 @@ export default function QuizApp() {
   };
 
   const calculateProgressPercentage = () => {
-    return ((currentQuestion + 1) / questions.length) * 100;
+    return ((currentQuestion + 1) / questionsData.length) * 100;
   };
 
   const getQuestionButtonStyle = (index) => {
@@ -91,7 +84,7 @@ export default function QuizApp() {
   };
 
   const handleNext = () => {
-    if (currentQuestion < questions.length - 1) {
+    if (currentQuestion < questionsData.length - 1) {
       const next = currentQuestion + 1;
       setCurrentQuestion(next);
       setSelectedAnswer(userAnswers[next] ?? null);
@@ -122,10 +115,10 @@ export default function QuizApp() {
 
   const handleSubmit = () => {
     let correctAnswers = 0;
-    questions.forEach((q, i) => {
+    questionsData.forEach((q, i) => {
       if (userAnswers[i] === q.correctAnswer) correctAnswers++;
     });
-    router(`/result?score=${correctAnswers}&totalQuestions=${questions.length}`);
+    router(`/result?score=${correctAnswers}&totalQuestions=${questionsData.length}`);
   };
 
   const handleLogout = () => {
@@ -141,7 +134,7 @@ export default function QuizApp() {
     setTimeLeft(300);
     setVisitedQuestions(new Set([0]));
     setQuestionStatuses(
-      questions.map((q, i) => ({
+      questionsData.map((q, i) => ({
         id: q.id,
         status: i === 0 ? "current" : "upcoming",
       }))
@@ -163,7 +156,7 @@ export default function QuizApp() {
     );
   }
 
-  const currentQuestionData = questions[currentQuestion];
+  const currentQuestionData = questionsData[currentQuestion];
 
   return (
     <div className="min-h-screen flex">
@@ -176,7 +169,7 @@ export default function QuizApp() {
         {!sidebarCollapsed && (
           <div className="flex flex-col justify-between h-96 p-6">
             <div className="grid grid-cols-4 gap-3 mb-8">
-              {questions.map((_, i) => (
+              {questionsData.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => handleQuestionNavigation(i)}
@@ -266,7 +259,7 @@ export default function QuizApp() {
               </div>
               <div className="flex items-center gap-4 ml-6">
                 <span className="text-base font-semibold text-gray-700">
-                  {currentQuestion + 1}/{questions.length}
+                  {currentQuestion + 1}/{questionsData.length}
                 </span>
                 <div className="bg-yellow-400 text-black px-3 py-1 rounded-lg font-medium flex items-center gap-2 text-sm">
                   <Clock className="w-4 h-4" />
@@ -340,7 +333,7 @@ export default function QuizApp() {
                       <ArrowLeft className="w-4 h-4" />
                       Previous
                     </button>
-                    {currentQuestion < questions.length - 1 ? (
+                    {currentQuestion < questionsData.length - 1 ? (
                       <button
                         onClick={handleNext}
                         className="flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all duration-200 text-sm bg-teal-600 text-white hover:bg-teal-700"
