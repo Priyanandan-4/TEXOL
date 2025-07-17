@@ -32,7 +32,7 @@ export default function Result() {
     navigate("/login");
   };
 
-  const handleBackToHome = () => navigate("/");
+  const handleBackToHome = () => navigate("/home");
 
   const getFirstLetter = () =>
     currentUser?.fullName?.charAt(0).toUpperCase() || "U";
@@ -107,21 +107,27 @@ export default function Result() {
         </div>
 
         {/* Feedback Box */}
-        <div className="bg-white w-full max-w-xl border shadow rounded-md p-5">
+        <div className="bg-white w-full max-w-2xl  shadow-xl rounded-md p-5">
           <h3 className="text-lg font-bold mb-2">Feedback</h3>
           <p className="text-sm mb-1 font-medium">Give us a feedback!</p>
-          <p className="text-xs text-gray-500 mb-3">
+          <p className="text-sm text-gray-500 mb-3">
             Your input is important for us. We take customer feedback seriously.
           </p>
-          <div className="flex justify-between mb-3 px-4 text-2xl">
-            {["😟", "😞", "😐", "🙂", "😄"].map((emoji, i) => (
-              <button key={i} className="hover:scale-110 transition-transform">{emoji}</button>
-            ))}
-          </div>
+         <div className="flex mb-3  text-3xl ">
+  {["😟", "😞", "😐", "🙂", "😄"].map((emoji, i) => (
+    <button
+      key={i}
+      className="  hover:text-yellow-400 hover:scale-110 transition-all"
+    >
+      {emoji}
+    </button>
+  ))}
+</div>
+
           <textarea
-            rows="2"
+            rows="3"
             placeholder="Add a comment"
-            className="w-full text-sm border rounded p-2 mb-3"
+            className="w-full text-sm border border-[#DFDFDF] rounded p-3 mb-3"
           ></textarea>
           <button
             onClick={() => alert("Successfully sent")}
